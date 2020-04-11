@@ -1,0 +1,80 @@
+{
+  "name": "smart-counter",
+  "version": "0.0.0",
+  "description": "A smart event counter",
+  "main": "lib/counter.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anandsuresh/instrumental.ai.git"
+  },
+  "author": "Anand Suresh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anandsuresh/instrumental.ai/issues"
+  },
+  "homepage": "https://github.com/anandsuresh/instrumental.ai#readme",
+  "scripts": {
+    "clean": "rm -rf node_modules",
+    "clean-all": "rm -rf node_modules package-lock.json",
+    "coverage": "nyc npm test",
+    "lint": "standard",
+    "lint-fix": "standard --fix",
+    "test": "mocha spec"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "mocha": "7.1.1",
+    "nyc": "15.0.1",
+    "standard": "14.3.3"
+  },
+  "mocha": {
+    "diff": true,
+    "extension": [
+      "js"
+    ],
+    "package": "./package.json",
+    "reporter": "spec",
+    "slow": 75,
+    "timeout": 30000,
+    "ui": "bdd",
+    "watch-files": [
+      "lib/**/*.js",
+      "spec/**/*.js"
+    ]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 99,
+    "statements": 99,
+    "functions": 99,
+    "branches": 99,
+    "include": [
+      "lib/**/*.js"
+    ],
+    "exclude": [
+      "spec/**/*.js"
+    ],
+    "reporter": [
+      "html",
+      "lcov",
+      "text-summary"
+    ],
+    "require": [],
+    "extension": [],
+    "cache": true,
+    "all": true,
+    "report-dir": "./coverage"
+  },
+  "standard": {
+    "ignore": [
+      "doc"
+    ],
+    "globals": [
+      "beforeEach",
+      "context",
+      "describe",
+      "it"
+    ]
+  }
+}
